@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>من نحن — نور النبراس</title>
+<meta name="theme-color" content="#0a1618">
+<script>try{var l=localStorage.getItem('nbsiq.lang')||'ar',t=localStorage.getItem('nbsiq.theme')||'night',d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/nbs.css">
+<style>
+.hero { padding-top: 170px; padding-bottom: 90px; position: relative; overflow: hidden; }
+.hero .big { font-family: "Marcellus", serif; font-size: clamp(120px, 22vw, 320px); line-height: .8; color: transparent; -webkit-text-stroke: 1px var(--line-2); position: absolute; inset-inline-end: -2vw; bottom: -4vw; direction: ltr; pointer-events: none; }
+.founder { display: grid; grid-template-columns: auto 1fr; gap: 5vw; align-items: center; }
+.founder .seal { width: clamp(150px, 18vw, 230px); aspect-ratio: 1; position: relative; display: grid; place-items: center; }
+.founder .seal::before, .founder .seal::after { content: ""; position: absolute; inset: 12%; background: var(--tq-deep); border-radius: 18px; box-shadow: inset 0 0 0 1px var(--tq); }
+.founder .seal::after { transform: rotate(45deg); }
+.founder .seal b { position: relative; z-index: 1; font-family: "Reem Kufi", sans-serif; font-size: clamp(40px, 5vw, 66px); color: #8fe0d6; }
+.founder blockquote { margin: 0; font-family: var(--f-display); font-size: clamp(24px, 3vw, 40px); line-height: 1.35; }
+#ch-values { height: 380vh; }
+.v-stage { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 5vw; padding: 90px var(--gutter) 30px; }
+.vrose { width: 100%; max-height: 76vh; overflow: visible; }
+.vrose .gl { fill: none; stroke-width: 2; stroke-linecap: round; }
+.vrose .s0 { stroke: var(--tq); } .vrose .s1 { stroke: var(--brass); } .vrose .s2 { stroke: var(--tq-2); }
+.vsteps { position: relative; min-height: 340px; }
+.vsteps .st { position: absolute; inset: 0; display: grid; gap: 18px; align-content: center; opacity: 0; translate: 0 22px; transition: opacity .7s var(--ease), translate .7s var(--ease); }
+.vsteps .st.on { opacity: 1; translate: 0 0; }
+.vsteps .n { font-family: "Marcellus", serif; color: var(--tq); font-size: 20px; }
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.member { padding: 28px; display: grid; gap: 16px; justify-items: start; }
+.member .tile { width: 76px; height: 76px; position: relative; display: grid; place-items: center; }
+.member .tile::before, .member .tile::after { content: ""; position: absolute; inset: 10%; background: var(--brass); border-radius: 10px; }
+.member .tile::after { transform: rotate(45deg); }
+.member .tile b { position: relative; z-index: 1; font-family: "Reem Kufi", sans-serif; font-size: 28px; color: #1a1205; }
+.member h3 { font-size: 24px; } .member span { color: var(--ink-3); }
+@media (max-width: 860px) {
+  .founder { grid-template-columns: 1fr; } .board { grid-template-columns: 1fr; }
+  .v-stage { grid-template-columns: 1fr; grid-template-rows: 40% 60%; padding-top: 74px; gap: 0; } .vrose { max-height: 34vh; } .vsteps { min-height: 0; height: 100%; } .vsteps .st { align-content: start; gap: 10px; }
+}
+</style>
+</head>
+<body data-title-ar="من نحن — نور النبراس" data-title-en="About — Noor Al Nibras">
+<div data-nbs-header data-page="about"></div>
+<main>
+<section class="hero"><div class="girih"></div><span class="big" aria-hidden="true">1980</span>
+  <div class="wrap" style="position:relative;display:grid;gap:22px;justify-items:start">
+    <span class="eyebrow"><span lang="ar">من نحن</span><span lang="en">About us</span></span>
+    <h1 class="display"><span lang="ar">شركة عراقية مرخّصة،<br>رائدة في تجارة الزيوت العطرية.</span><span lang="en">A licensed Iraqi company,<br>leading the perfume-oil trade.</span></h1>
+    <p class="lede"><span lang="ar">معروفة محلياً، ومن أكبر شركات تجارة العطور في العراق، ووكيل حصري لدور عطور عالمية كبرى — منذ 1980.</span><span lang="en">Locally recognised, one of the largest perfume trading companies in Iraq, and exclusive agent for major international perfume houses — since 1980.</span></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="wrap founder">
+    <div class="seal"><b><span lang="ar">ص</span><span lang="en">S</span></b></div>
+    <div style="display:grid;gap:18px">
+      <span class="eyebrow"><span lang="ar">المؤسس</span><span lang="en">The founder</span></span>
+      <blockquote><span lang="ar">المهندس صلاح حسن الزبيدي — رائد تجارة العطور في العراق، بمنهج مبتكر ورؤية نواصل البناء عليها.</span><span lang="en">Eng. Salah Hassan Al-Zubaidi — a pioneer of Iraq's perfume trade, with an innovative method and a vision we continue to build on.</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="ch-values">
+  <div class="stage v-stage">
+    <svg class="vrose" id="vrose" viewBox="-230 -230 460 460" aria-hidden="true"></svg>
+    <div class="vsteps" id="vsteps">
+      <div class="st on"><span class="n">01</span><span class="eyebrow"><span lang="ar">الرؤية</span><span lang="en">Vision</span></span>
+        <h2 class="h-lg"><span lang="ar">نمو مستدام لنصبح الشركة الأكثر ثقة.</span><span lang="en">Sustainable growth, to become the most trusted company.</span></h2>
+        <p class="lede"><span lang="ar">على مستوى العالم — والأكثر مصداقية وأمانة في علاقاتنا مع زبائننا.</span><span lang="en">On a global scale — and the most credible and honest in our relationships with our customers.</span></p></div>
+      <div class="st"><span class="n">02</span><span class="eyebrow"><span lang="ar">الفلسفة</span><span lang="en">Philosophy</span></span>
+        <h2 class="h-lg"><span lang="ar">النزاهة، المصداقية، والتحسين المستمر.</span><span lang="en">Integrity, credibility, continuous improvement.</span></h2>
+        <p class="lede"><span lang="ar">نعالج ما يواجهه زبائننا من مشكلات، مرّة بعد مرّة، حتى لا تتكرّر.</span><span lang="en">We address the issues our customers meet, again and again, until they stop recurring.</span></p></div>
+      <div class="st"><span class="n">03</span><span class="eyebrow"><span lang="ar">الأهداف</span><span lang="en">Goals</span></span>
+        <h2 class="h-lg"><span lang="ar">الريادة في الشرق الأوسط والعالم.</span><span lang="en">To lead across the Middle East and beyond.</span></h2>
+        <p class="lede"><span lang="ar">استيراد بجودة عالية، أسعار منافسة، وثقة مبنية على الصدق.</span><span lang="en">Quality imports, competitive prices, and trust built on honesty.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow"><span lang="ar">مجلس الإدارة</span><span lang="en">Board of directors</span></span>
+    <div class="board" id="board"></div>
+  </div>
+</section>
+</main>
+<div data-nbs-footer></div>
+<script src="assets/data.js"></script>
+<script src="assets/nbs.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.NBS_DATA, M = NBS.M, t = NBS.t;
+  NBS.boot();
+  const board = document.getElementById("board");
+  const drawBoard = () => board.innerHTML = D.BOARD.map(b => `<div class="member card" data-reveal><span class="tile"><b>${t(b.n).trim()[0]}</b></span><h3>${t(b.n)}</h3><span>${t(b.r)}</span></div>`).join("");
+  drawBoard(); NBS.onLang(drawBoard);
+  board.querySelectorAll("[data-reveal]").forEach(el => el.classList.add("in"));
+
+  // three stages of one rosette: outer (vision), middle (philosophy), heart (goals)
+  const svg = document.getElementById("vrose");
+  svg.innerHTML = `<circle r="214" fill="none" stroke="var(--line)"/>` + NBS.girih(200);
+  const lines = [...svg.querySelectorAll(".gl")];
+  const stageOf = i => i < 16 ? 0 : i < 32 ? 1 : 2;
+  lines.forEach((l, i) => l.classList.add("s" + stageOf(i)));
+  const steps = [...document.querySelectorAll("#vsteps .st")];
+  NBS.scene(document.getElementById("ch-values"), {
+    render(p, now) {
+      const act = p < .36 ? 0 : p < .68 ? 1 : 2;
+      steps.forEach((s, i) => s.classList.toggle("on", i === act));
+      const per = [lines.filter((_, i) => stageOf(i) === 0), lines.filter((_, i) => stageOf(i) === 1), lines.filter((_, i) => stageOf(i) === 2)];
+      per.forEach((ls, s) => ls.forEach((l, j) => {
+        const a = .04 + s * .32, k = M.easeOut(M.seg(p, a + j / ls.length * .2, a + .08 + j / ls.length * .2));
+        l.setAttribute("stroke-dashoffset", (1 - k).toFixed(3));
+      }));
+      svg.style.transform = `rotate(${(p * 30).toFixed(2)}deg)`;
+    }
+  });
+})();
+</script>
+</body>
+</html>

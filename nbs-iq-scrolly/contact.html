@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>تواصل — نور النبراس</title>
+<meta name="theme-color" content="#0a1618">
+<script>try{var l=localStorage.getItem('nbsiq.lang')||'ar',t=localStorage.getItem('nbsiq.theme')||'night',d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/nbs.css">
+<style>
+.top { padding-top: 160px; padding-bottom: 50px; position: relative; }
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.branch { padding: clamp(22px, 3vw, 36px); display: grid; gap: 14px; position: relative; overflow: hidden; }
+.branch h2 { font-size: clamp(26px, 3vw, 38px); }
+.branch .ph { font-family: "Marcellus", serif; font-size: clamp(30px, 3.4vw, 46px); color: var(--tq); direction: ltr; text-align: start; letter-spacing: .02em; }
+html[dir="rtl"] .branch .ph { text-align: right; }
+.branch .row { display: flex; gap: 8px; flex-wrap: wrap; }
+.branch .corner { position: absolute; top: -40px; inset-inline-end: -40px; width: 160px; height: 160px; opacity: .5; }
+.formwrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5vw; align-items: start; }
+.form { padding: clamp(22px, 3vw, 40px); display: grid; gap: 18px; }
+.form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.err { color: var(--clay); font-size: 13px; min-height: 18px; }
+@media (max-width: 860px) { .branches, .formwrap { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .form .two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-title-ar="تواصل — نور النبراس" data-title-en="Contact — Noor Al Nibras">
+<div data-nbs-header data-page="contact"></div>
+<main>
+<section class="top"><div class="girih"></div>
+  <div class="wrap" style="position:relative;display:grid;gap:20px;justify-items:start">
+    <span class="eyebrow"><span lang="ar">تواصل</span><span lang="en">Contact</span></span>
+    <h1 class="display"><span lang="ar">فرعان في بغداد.<br>ردّ مباشر على واتساب.</span><span lang="en">Two branches in Baghdad.<br>Direct replies on WhatsApp.</span></h1>
+  </div>
+</section>
+<section class="wrap" style="padding-bottom:90px"><div class="branches" id="branches"></div>
+  <p class="muted small" style="margin-top:16px"><span lang="ar">البريد الإلكتروني:</span><span lang="en">Email:</span> <a href="mailto:nbsiqofficial@gmail.com" style="color:var(--tq)">nbsiqofficial@gmail.com</a></p>
+</section>
+
+<section class="section" id="quote" style="padding-top:20px">
+  <div class="wrap formwrap">
+    <div style="display:grid;gap:16px">
+      <span class="eyebrow"><span lang="ar">عرض سعر</span><span lang="en">Quote</span></span>
+      <h2 class="h-xl"><span lang="ar">اكتب طلبك،<br>ونرسله للفرع.</span><span lang="en">Write your request,<br>we send it to the branch.</span></h2>
+      <p class="lede"><span lang="ar">يُفتح واتساب برسالة جاهزة إلى الفرع الذي تختاره — لا تحتاج أن تكتب شيئاً مرتين.</span><span lang="en">WhatsApp opens with a ready message to the branch you choose — nothing to type twice.</span></p>
+    </div>
+    <form class="form card" id="form" novalidate>
+      <div class="two">
+        <div class="field"><label for="fName"><span lang="ar">الاسم</span><span lang="en">Name</span></label><input class="input" id="fName" autocomplete="name"></div>
+        <div class="field"><label for="fShop"><span lang="ar">اسم المحل (اختياري)</span><span lang="en">Shop name (optional)</span></label><input class="input" id="fShop"></div>
+      </div>
+      <div class="field"><label><span lang="ar">الفرع</span><span lang="en">Branch</span></label><div class="picks" id="pBranch"></div></div>
+      <div class="field"><label><span lang="ar">أبحث عن</span><span lang="en">I'm looking for</span></label><div class="picks" id="pNeed"></div></div>
+      <div class="field"><label><span lang="ar">الدار</span><span lang="en">House</span></label><div class="picks" id="pHouse"></div></div>
+      <div class="field"><label for="fMsg"><span lang="ar">التفاصيل — الأسماء والكميات</span><span lang="en">Details — names and quantities</span></label><textarea class="input" id="fMsg"></textarea></div>
+      <div class="err" id="err" role="alert"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" type="submit"><span lang="ar">أرسل عبر واتساب</span><span lang="en">Send via WhatsApp</span></button>
+        <button class="btn ghost" type="button" id="mailBtn"><span lang="ar">أو بالبريد</span><span lang="en">Or by email</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+<div data-nbs-footer></div>
+<script src="assets/data.js"></script>
+<script src="assets/nbs.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.NBS_DATA, t = NBS.t, $ = id => document.getElementById(id);
+  NBS.boot();
+  const NEEDS = [["oils", { ar: "زيوت عطرية مركّزة", en: "Concentrated oils" }], ["glass", { ar: "زجاج وقوارير", en: "Glass & bottles" }], ["acc", { ar: "مستلزمات وإكسسوارات", en: "Accessories" }]];
+  const sel = { branch: D.BRANCHES[0].id, need: new Set(["oils"]), house: new Set() };
+  function draw() {
+    $("branches").innerHTML = D.BRANCHES.map(b => `<div class="branch card">
+      <svg class="corner" viewBox="-110 -110 220 220" aria-hidden="true"><g fill="none" stroke="var(--tq)" stroke-width="1.4">${NBS.girih(100).replace(/stroke-dashoffset="1"/g, 'stroke-dashoffset="0"')}</g></svg>
+      <span class="eyebrow">${t(b.short)}</span><h2>${t(b.name)}</h2>
+      <a class="ph" href="tel:${b.phone}">${b.phone}</a>
+      <span class="muted small">${t(b.addr)}</span>
+      <div class="row">
+        <a class="btn sm" href="https://wa.me/${b.wa}" target="_blank" rel="noopener">${NBS.icons.chat}${t({ ar: "واتساب", en: "WhatsApp" })}</a>
+        <a class="btn ghost sm" href="tel:${b.phone}">${NBS.icons.phone}${t({ ar: "اتصال", en: "Call" })}</a>
+        <a class="btn ghost sm" href="${b.map}" target="_blank" rel="noopener">${NBS.icons.pin}${t({ ar: "الخريطة", en: "Map" })}</a>
+      </div></div>`).join("");
+    $("pBranch").innerHTML = D.BRANCHES.map(b => `<label><input type="radio" name="br" value="${b.id}" ${sel.branch === b.id ? "checked" : ""}><span class="chip">${t(b.short)}</span></label>`).join("");
+    $("pNeed").innerHTML = NEEDS.map(([k, l]) => `<label><input type="checkbox" value="${k}" ${sel.need.has(k) ? "checked" : ""}><span class="chip">${t(l)}</span></label>`).join("");
+    $("pHouse").innerHTML = D.HOUSES.map(h => `<label><input type="checkbox" value="${h.id}" ${sel.house.has(h.id) ? "checked" : ""}><span class="chip">${h.name}</span></label>`).join("");
+  }
+  $("pBranch").addEventListener("change", e => sel.branch = e.target.value);
+  $("pNeed").addEventListener("change", e => e.target.checked ? sel.need.add(e.target.value) : sel.need.delete(e.target.value));
+  $("pHouse").addEventListener("change", e => e.target.checked ? sel.house.add(e.target.value) : sel.house.delete(e.target.value));
+  draw(); NBS.onLang(draw);
+  function compose() {
+    const name = $("fName").value.trim();
+    if (!name) { $("err").textContent = t({ ar: "اكتب اسمك حتى يعرف الفرع من يخاطب.", en: "Add your name so the branch knows who to reply to." }); return null; }
+    $("err").textContent = "";
+    return [
+      t({ ar: "طلب عرض سعر — موقع نور النبراس", en: "Quote request — Noor Al Nibras website" }),
+      `${t({ ar: "الاسم", en: "Name" })}: ${name}`,
+      $("fShop").value.trim() && `${t({ ar: "المحل", en: "Shop" })}: ${$("fShop").value.trim()}`,
+      `${t({ ar: "أبحث عن", en: "Looking for" })}: ${NEEDS.filter(n => sel.need.has(n[0])).map(n => t(n[1])).join("، ") || "—"}`,
+      sel.house.size ? `${t({ ar: "الدار", en: "House" })}: ${D.HOUSES.filter(h => sel.house.has(h.id)).map(h => h.name).join(", ")}` : "",
+      $("fMsg").value.trim()
+    ].filter(Boolean).join("\n");
+  }
+  $("form").addEventListener("submit", e => {
+    e.preventDefault(); const msg = compose(); if (!msg) return;
+    const b = D.BRANCHES.find(x => x.id === sel.branch);
+    open(`https://wa.me/${b.wa}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+  });
+  $("mailBtn").onclick = () => { const msg = compose(); if (!msg) return; location.href = `mailto:${D.EMAIL}?subject=${encodeURIComponent(t({ ar: "طلب عرض سعر", en: "Quote request" }))}&body=${encodeURIComponent(msg)}`; };
+})();
+</script>
+</body>
+</html>

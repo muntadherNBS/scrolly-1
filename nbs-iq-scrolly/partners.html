@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>الشركاء — نور النبراس</title>
+<meta name="theme-color" content="#0a1618">
+<script>try{var l=localStorage.getItem('nbsiq.lang')||'ar',t=localStorage.getItem('nbsiq.theme')||'night',d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/nbs.css">
+<style>
+.intro { padding-top: 160px; padding-bottom: 60px; position: relative; }
+.intro .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+.house { height: 260vh; }
+.house .stage { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 5vw; padding: 90px var(--gutter) 30px; }
+.rose { width: 100%; max-height: 74vh; overflow: visible; }
+.rose .gl { fill: none; stroke: var(--hc); stroke-width: 2; stroke-linecap: round; }
+.rose .core { transition: opacity .6s; }
+.hinfo { display: grid; gap: 18px; align-content: center; max-width: 560px; }
+.hinfo .nm { font-family: "Marcellus", serif; font-size: clamp(46px, 6vw, 92px); line-height: .95; direction: ltr; text-align: start; }
+html[dir="rtl"] .hinfo .nm { text-align: right; }
+.hinfo .tg { color: var(--hc); font-weight: 500; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+.hinfo .tg i { width: 10px; height: 10px; background: var(--hc); transform: rotate(45deg); }
+.hinfo p { color: var(--ink-2); font-size: clamp(16px, 1.35vw, 19px); }
+.stats { display: flex; gap: 0; flex-wrap: wrap; }
+.stats div { padding: 4px 24px; border-inline-start: 1px solid var(--line-2); display: grid; }
+.stats div:first-child { padding-inline-start: 0; border: 0; }
+.stats b { font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(38px, 4vw, 56px); color: var(--hc); line-height: 1.1; direction: ltr; text-align: start; }
+html[dir="rtl"] .stats b { text-align: right; }
+.stats small { color: var(--ink-3); font-size: 13px; }
+.notes3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.notes3 div { padding: 14px; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--line); display: grid; gap: 4px; }
+.notes3 small { color: var(--hc); font-weight: 500; } .notes3 span { color: var(--ink-2); font-size: 14px; }
+.event { padding: 16px 18px; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--line); display: grid; gap: 4px; }
+.event small { color: var(--hc); font-weight: 500; }
+.event span { color: var(--ink-2); font-size: 14px; }
+.hcount { position: absolute; bottom: 26px; inset-inline-start: var(--gutter); font-family: "Marcellus", serif; color: var(--ink-3); }
+@media (max-width: 860px) {
+  .house { height: 200vh; }
+  .house .stage { grid-template-columns: 1fr; grid-template-rows: 34% 66%; padding-top: 76px; gap: 0; align-items: start; }
+  .rose { max-height: 30vh; } .hinfo { gap: 10px; } .hinfo p { font-size: 15px; } .notes3 { grid-template-columns: 1fr; gap: 6px; } .notes3 div { padding: 8px 12px; }
+}
+</style>
+</head>
+<body data-title-ar="الشركاء — نور النبراس" data-title-en="Partners — Noor Al Nibras">
+<div data-nbs-header data-page="partners"></div>
+<main>
+<section class="intro"><div class="girih"></div>
+  <div class="wrap" style="position:relative;display:grid;gap:20px;justify-items:start">
+    <span class="eyebrow"><span lang="ar">الشراكات</span><span lang="en">Partnership</span></span>
+    <h1 class="display"><span lang="ar">روابط تتجاوز الحدود،<br>مبنية على الثقة والتعاون.</span><span lang="en">Bonds beyond borders,<br>built on trust and collaboration.</span></h1>
+    <p class="lede"><span lang="ar">وكلاء حصريون في العراق لدور عطور عالمية. كل دار في هذه الصفحة تُرسم نجمتها وأنت تمرّر.</span><span lang="en">Exclusive agents in Iraq for global fragrance houses. Each house's star draws itself as you scroll.</span></p>
+    <div class="row" id="jump"></div>
+  </div>
+</section>
+<div id="houses"></div>
+</main>
+<div data-nbs-footer></div>
+<script src="assets/data.js"></script>
+<script src="assets/nbs.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.NBS_DATA, M = NBS.M, bi = NBS.bi;
+  const EXTRA = {
+    givaudan: h => `<div class="stats">${h.stats.map(([n, l]) => `<div><b data-to="${n}">0</b><small>${bi(l.ar, l.en)}</small></div>`).join("")}</div>
+      <div class="event"><small>${bi("منذ 2016", "Since 2016")}</small><span>${bi("شراكة قائمة على التميّز والإبداع وتقديم منتجات تُلهم وتُبهج.", "A partnership built on a shared commitment to excellence, creativity and products that inspire and delight.")}</span></div>`,
+    adf: () => `<div class="event"><small>LUXE PACK · Monaco</small><span>${bi("مديرنا التنفيذي في LUXE PACK موناكو — أبرز معرض لابتكارات التغليف الفاخر، بأكثر من 450 عارضاً في Grimaldi Forum. نتابع الجديد في عالم العطر من مصدره.", "Our CEO at LUXE PACK Monaco — the premier event for luxury packaging innovation, with 450+ exhibitors at the Grimaldi Forum. We follow what's new in fragrance at the source.")}</span></div>`,
+    royal: () => `<div class="notes3">
+        <div><small>${bi("المقدمة", "Top")}</small><span>${bi("برغموت، ليمون، تفاح", "Bergamot, lemon, apple")}</span></div>
+        <div><small>${bi("القلب", "Heart")}</small><span>${bi("ورد، ياسمين، لافندر، قرفة", "Rose, jasmine, lavender, cinnamon")}</span></div>
+        <div><small>${bi("القاعدة", "Base")}</small><span>${bi("عنبر، مسك، صندل، فانيلا", "Amber, musk, sandalwood, vanilla")}</span></div></div>
+      <div class="event"><small>${bi("فحص وجودة", "Testing & quality")}</small><span>${bi("تحليل الرائحة (التطاير، الثبات، التطوّر)، والاستقرار في ظروف مختلفة، وملاءمة البشرة.", "Scent profiling (volatility, longevity, development), stability under varying conditions, and skin compatibility.")}</span></div>`,
+    florchem: () => `<div class="event"><small>${bi("لمسة إسبانية", "A Spanish touch")}</small><span>${bi("العطّار يختار كل مادة ليوصل شعوراً أو رسالة محدّدة — ونحن نحرص أن يصل إليك كما صُمّم.", "The perfumer chooses each material to evoke a feeling or carry a message — we make sure it reaches you as designed.")}</span></div>`,
+    european: () => `<div class="event"><small>${bi("من الطبيعة", "From nature")}</small><span>${bi("مواد أولية مستدامة: زيوت عطرية، مستخلصات نباتية، وخلاصات طبيعية — نضارة في كل لحظة.", "Sustainable raw materials: essential oils, plant extracts and natural essences — freshness in every moment.")}</span></div>`
+  };
+  document.getElementById("jump").innerHTML = D.HOUSES.map(h => `<a class="chip" href="#${h.id}"><i style="width:8px;height:8px;background:${h.color};transform:rotate(45deg)"></i>${h.name}</a>`).join("");
+  document.getElementById("houses").innerHTML = D.HOUSES.map((h, i) => `
+    <section class="scene house" id="${h.id}" data-chapter data-ar="${h.name}" data-en="${h.name}" style="--hc:${h.color}">
+      <div class="stage"><div class="girih" style="opacity:.04"></div>
+        <svg class="rose" viewBox="-230 -230 460 460" aria-hidden="true">
+          <circle r="214" fill="none" stroke="var(--line)" />
+          <g class="lines">${NBS.girih(200)}</g>
+          <g class="core" opacity="0"><circle r="54" fill="var(--hc)"/><text text-anchor="middle" dy=".35em" font-family="Marcellus, serif" font-size="30" fill="#061514">${h.code}</text></g>
+        </svg>
+        <div class="hinfo">
+          <span class="tg"><i></i>${bi(h.tag.ar, h.tag.en)}</span>
+          <div class="nm">${h.name}</div>
+          <p>${bi(h.d.ar, h.d.en)}</p>
+          ${EXTRA[h.id] ? EXTRA[h.id](h) : ""}
+        </div>
+        <span class="hcount" dir="ltr">0${i + 1} / 0${D.HOUSES.length}</span>
+      </div>
+    </section>`).join("");
+  NBS.boot();
+
+  document.querySelectorAll(".house").forEach(sec => {
+    const lines = [...sec.querySelectorAll(".gl")], core = sec.querySelector(".core"), svg = sec.querySelector(".rose .lines");
+    const nums = [...sec.querySelectorAll("[data-to]")];
+    NBS.scene(sec, {
+      render(p, now) {
+        const n = lines.length;
+        lines.forEach((l, i) => l.setAttribute("stroke-dashoffset", (1 - M.easeOut(M.seg(p, .05 + i / n * .45, .15 + i / n * .45))).toFixed(3)));
+        core.setAttribute("opacity", M.seg(p, .5, .6).toFixed(2));
+        svg.setAttribute("transform", `rotate(${(p * 45 + Math.sin(now * .2) * 1.5).toFixed(2)})`);
+        nums.forEach(el => el.textContent = Math.round(+el.dataset.to * M.easeOut(M.seg(p, .25, .6))));
+      }
+    });
+  });
+  if (location.hash) setTimeout(() => document.querySelector(location.hash)?.scrollIntoView(), 200);
+})();
+</script>
+</body>
+</html>
