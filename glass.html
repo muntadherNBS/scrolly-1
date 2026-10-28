@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>زجاج العطور — نور النبراس</title>
+<meta name="theme-color" content="#0a1618">
+<script>try{var l=localStorage.getItem('nbsiq.lang')||'ar',t=localStorage.getItem('nbsiq.theme')||'night',d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/nbs.css">
+<style>
+#ch-wall { height: 320vh; }
+.wall-copy { position: absolute; z-index: 2; inset-inline: var(--gutter); top: 13vh; display: grid; gap: 16px; justify-items: start; }
+.wall-copy .lede { max-width: 40ch; }
+.explorer { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0; }
+#morph { width: 100%; max-height: 74vh; overflow: visible; }
+.variants { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-top: 50px; }
+.variants .v { aspect-ratio: 3 / 4; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--line); display: grid; place-items: center; padding: 12px; transition: box-shadow .3s, transform .4s var(--ease); }
+.variants .v:hover { box-shadow: inset 0 0 0 1px var(--tq); transform: translateY(-3px); }
+.variants svg { height: 100%; width: auto; overflow: visible; }
+.ask { margin-top: 26px; display: flex; gap: 10px; flex-wrap: wrap; }
+@media (max-width: 860px) { .explorer { grid-template-columns: 1fr; } #morph { max-height: 46vh; } .wall-copy { top: 12vh; } }
+</style>
+</head>
+<body data-title-ar="زجاج العطور — نور النبراس" data-title-en="Perfume Glass — Noor Al Nibras">
+<div data-nbs-header data-page="glass"></div>
+<main>
+<section class="scene" id="ch-wall">
+  <div class="stage">
+    <canvas class="full" id="wallCv" aria-hidden="true"></canvas>
+    <div class="wall-copy" id="wallCopy">
+      <span class="eyebrow"><span lang="ar">زجاج العطور</span><span lang="en">Perfume bottle glass</span></span>
+      <h1 class="display"><span lang="ar">مئات الأشكال<br>والأحجام.</span><span lang="en">Hundreds of shapes<br>and sizes.</span></h1>
+      <p class="lede"><span lang="ar">بخّاخات، كبس، تولة، وقوارير زيت — من نور النبراس، بغداد.</span><span lang="en">Sprays, crimp, tola and oil bottles — from Noor Al Nibras, Baghdad.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="explore">
+  <div class="wrap">
+    <div class="explorer">
+      <div>
+        <span class="eyebrow"><span lang="ar">أربع عائلات</span><span lang="en">Four families</span></span>
+        <h2 class="h-xl" style="margin-top:14px" id="tName"></h2>
+        <div class="tabs" id="tabs"></div>
+        <p class="lede" id="tDesc"></p>
+        <div class="ask" id="ask"></div>
+        <p class="small muted" style="margin-top:14px"><span lang="ar">الأشكال المعروضة رسوم توضيحية. اطلب الكتالوج الكامل بالصور والأسعار من الفرع.</span><span lang="en">Shapes shown are illustrations. Ask the branch for the full catalogue with photos and prices.</span></p>
+      </div>
+      <svg id="morph" viewBox="0 0 600 720" aria-hidden="true">
+        <defs>
+          <linearGradient id="gl2" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".03"/><stop offset=".16" stop-color="#fff" stop-opacity=".4"/><stop offset=".24" stop-color="#fff" stop-opacity=".04"/><stop offset=".86" stop-color="#fff" stop-opacity=".03"/><stop offset=".92" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity=".03"/></linearGradient>
+          <linearGradient id="brass2" x1="0" x2="1"><stop offset="0" stop-color="#6d5222"/><stop offset=".4" stop-color="#f2d9a0"/><stop offset=".65" stop-color="#b48d48"/><stop offset="1" stop-color="#5d451b"/></linearGradient>
+          <clipPath id="mc"><path id="mcP"/></clipPath>
+        </defs>
+        <ellipse cx="300" cy="676" rx="150" ry="12" fill="#000" opacity=".3"/>
+        <g clip-path="url(#mc)"><rect x="0" y="0" width="600" height="720" fill="var(--tq-deep)" opacity=".35"/><rect id="mCap" x="0" y="0" width="600" height="0" fill="url(#brass2)"/><rect x="0" y="0" width="600" height="720" fill="url(#gl2)"/></g>
+        <path id="mOut" fill="none" stroke="var(--tq-2)" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="variants" id="variants"></div>
+  </div>
+</section>
+</main>
+<div data-nbs-footer></div>
+<script src="assets/data.js"></script>
+<script src="assets/nbs.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.NBS_DATA, M = NBS.M, t = NBS.t;
+  NBS.boot();
+  const TYPES = D.GLASS.map(g => g.id), P = TYPES.map(id => NBS.profile(id)), CAP = [.25, .2, .3, .32];
+  const blend = (wts, bias) => { const w = wts.map((x, j) => x * x + (j === bias ? 1.6 : 0)), s = w.reduce((a, b) => a + b); return P[0].map((_, i) => w.reduce((a, wv, j) => a + wv * P[j][i], 0) / s); };
+
+  /* ---------- the wall: four become hundreds ---------- */
+  (function wall() {
+    const S = NBS.canvas(document.getElementById("wallCv"), layout), copy = document.getElementById("wallCopy");
+    let B = [];
+    function layout() {
+      const { w, h } = S, rnd = M.rng(7), mob = w < 760;
+      const cell = mob ? 34 : 46, cols = Math.floor((w - 40) / cell), rows = Math.floor((h * .58) / (cell * 1.6));
+      const x0 = (w - cols * cell) / 2 + cell / 2, y0 = h * .4;
+      B = [];
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+        const bias = Math.floor(rnd() * 4), rs = blend([rnd(), rnd(), rnd(), rnd()], bias);
+        const gx = x0 + c * cell, gy = y0 + r * cell * 1.6;
+        const d = Math.hypot(gx - w / 2, gy - h * .7) / Math.hypot(w / 2, h * .5);
+        B.push({ rs, gx, gy, d, s: cell * .55 * (.75 + rnd() * .35), col: rnd() < .18 ? 1 : 0 });
+      }
+      // the four originals, centred large
+      S.big = P.map((rs, i) => ({ rs, x: w / 2 + (i - 1.5) * Math.min(170, w * .22), y: h * .94, s: Math.min(h * .17, w * .1) }));
+    }
+    function draw(ctx, rs, x, y, h, stroke, fill) {
+      const n = rs.length - 1; ctx.beginPath();
+      for (let i = 0; i <= n; i++) ctx.lineTo(x + rs[i] * h * .27, y - h + h * i / n);
+      for (let i = n; i >= 0; i--) ctx.lineTo(x - rs[i] * h * .27, y - h + h * i / n);
+      ctx.closePath(); if (fill) { ctx.fillStyle = fill; ctx.fill(); } ctx.strokeStyle = stroke; ctx.stroke();
+    }
+    NBS.scene(document.getElementById("ch-wall"), {
+      render(p) {
+        const { ctx, w, h } = S; ctx.clearRect(0, 0, w, h);
+        const tq = NBS.css("--tq"), tq2 = NBS.css("--tq-2"), brass = NBS.css("--brass");
+        const shrink = M.easeInOut(M.seg(p, .05, .35));
+        copy.style.opacity = 1 - M.seg(p, .7, .9);
+        ctx.lineWidth = 1.5;
+        S.big && S.big.forEach(b => { ctx.globalAlpha = 1 - shrink; draw(ctx, b.rs, b.x, b.y, b.s * 2.2 * (1 - shrink * .6), tq2, "rgba(55,179,168,.12)"); });
+        ctx.lineWidth = 1;
+        B.forEach(b => {
+          const k = M.easeOut(M.seg(p, .2 + b.d * .45, .3 + b.d * .45));
+          if (k <= 0) return;
+          ctx.globalAlpha = k * .85;
+          draw(ctx, b.rs, b.gx, b.gy + (1 - k) * 30, b.s * 1.5 * (.6 + .4 * k), b.col ? brass : tq, null);
+        });
+        ctx.globalAlpha = 1;
+      }
+    });
+  })();
+
+  /* ---------- explorer: click a family, the bottle morphs ---------- */
+  (function explorer() {
+    const out = document.getElementById("mOut"), cp = document.getElementById("mcP"), cap = document.getElementById("mCap");
+    const tabs = document.getElementById("tabs"), name = document.getElementById("tName"), desc = document.getElementById("tDesc"), ask = document.getElementById("ask"), vars = document.getElementById("variants");
+    let cur = 0, from = P[0], to = P[0], cf = CAP[0], ct = CAP[0], t0 = 0;
+    function paint() {
+      const g = D.GLASS[cur];
+      tabs.innerHTML = D.GLASS.map((x, i) => `<button class="chip ${i === cur ? "on" : ""}" data-i="${i}">${t(x.name)}</button>`).join("");
+      name.textContent = t(g.name); desc.textContent = t(g.d);
+      const msg = encodeURIComponent(t({ ar: "مرحباً، أرغب بكتالوج زجاج: ", en: "Hello, I'd like the glass catalogue for: " }) + t(g.name));
+      ask.innerHTML = D.BRANCHES.map((b, i) => `<a class="btn ${i ? "ghost" : ""} sm" href="https://wa.me/${b.wa}?text=${msg}" target="_blank" rel="noopener">${NBS.icons.chat}${t({ ar: "اطلب الكتالوج — ", en: "Ask " })}${t(b.short)}</a>`).join("");
+      const rnd = M.rng(100 + cur);
+      vars.innerHTML = Array.from({ length: 12 }, () => {
+        const rs = blend([rnd(), rnd(), rnd(), rnd()], cur);
+        return `<div class="v"><svg viewBox="-80 -10 160 220"><path d="${NBS.profilePath(rs, 0, 0, 200, 70)}" fill="rgba(55,179,168,.12)" stroke="var(--tq)" stroke-width="1.6"/></svg></div>`;
+      }).join("");
+    }
+    tabs.addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (!b) return; go(+b.dataset.i); });
+    function go(i) { from = current(); cf = curCap(); cur = i; to = P[i]; ct = CAP[i]; t0 = performance.now(); paint(); }
+    let k = 1;
+    const current = () => from.map((r, i) => M.lerp(r, to[i], k)), curCap = () => M.lerp(cf, ct, k);
+    NBS.onFrame(() => {
+      k = M.easeInOut(M.clamp((performance.now() - t0) / 700));
+      const d = NBS.profilePath(current(), 300, 90, 580, 150);
+      out.setAttribute("d", d); cp.setAttribute("d", d); cap.setAttribute("height", 90 + 580 * curCap());
+    });
+    paint(); NBS.onLang(paint);
+    // auto-advance until the visitor picks one
+    let auto = setInterval(() => go((cur + 1) % 4), 3200);
+    tabs.addEventListener("click", () => clearInterval(auto), { once: true });
+  })();
+})();
+</script>
+</body>
+</html>

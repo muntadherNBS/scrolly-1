@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>نور النبراس — عطور العالم بميزان الثقة</title>
+<meta name="description" content="نور النبراس — تاجر عراقي مرخّص للزيوت العطرية المركّزة ومستلزماتها، ووكيل حصري لدور عطور عالمية. بغداد، منذ 1980.">
+<meta name="theme-color" content="#0a1618">
+<script>try{var l=localStorage.getItem('nbsiq.lang')||'ar',t=localStorage.getItem('nbsiq.theme')||'night',d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/nbs.css">
+<style>
+/* 00 · scale */
+#ch-scale { height: 440vh; }
+.copy-abs { position: absolute; z-index: 2; top: 50%; transform: translateY(-50%); inset-inline-start: var(--gutter); width: min(560px, 44vw); }
+.copy-abs .step { position: absolute; inset: 0 0 auto 0; transform: translateY(-50%); display: grid; gap: 20px; opacity: 0; translate: 0 24px; transition: opacity .7s var(--ease), translate .7s var(--ease); pointer-events: none; }
+.copy-abs .step.on { opacity: 1; translate: 0 0; pointer-events: auto; }
+.copy-abs h1 { line-height: 1.12; }
+.copy-abs h1 em, .copy-abs h2 em { font-style: normal; color: var(--tq); }
+.readout { display: flex; gap: 26px; flex-wrap: wrap; }
+.readout div { display: grid; }
+.readout b { font-family: "Marcellus", serif; font-weight: 400; font-size: 30px; color: var(--brass); direction: ltr; text-align: start; font-variant-numeric: tabular-nums; }
+html[dir="rtl"] .readout b { text-align: right; }
+.readout small { color: var(--ink-3); font-size: 13px; }
+.cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); display: grid; justify-items: center; gap: 8px; font-size: 13px; color: var(--ink-3); z-index: 2; }
+.cue i { width: 10px; height: 10px; border-inline-end: 1.5px solid var(--tq); border-bottom: 1.5px solid var(--tq); transform: rotate(45deg); animation: bob 1.8s var(--ease) infinite; }
+@keyframes bob { 50% { translate: 0 6px; } }
+@media (max-width: 760px) {
+  .copy-abs { top: auto; bottom: 7vh; transform: none; width: auto; inset-inline: var(--gutter); }
+  .copy-abs .step { transform: none; inset: auto 0 0 0; gap: 12px; }
+  .copy-abs .lede { font-size: 15px; }
+  .readout b { font-size: 22px; }
+}
+
+/* 01 · years */
+#ch-years { height: 380vh; }
+.years { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; height: 100%; padding: 90px var(--gutter) 40px; gap: 5vw; }
+.odo { display: flex; direction: ltr; justify-content: center; font-family: "Marcellus", serif; font-size: clamp(110px, 17vw, 260px); line-height: 1; height: 1em; overflow: hidden; color: var(--ink); position: relative; }
+.odo .col { display: flex; flex-direction: column; will-change: transform; }
+.odo .col span { height: 1em; display: block; text-align: center; width: .72em; }
+.odo::before, .odo::after { content: ""; position: absolute; inset-inline: 0; height: 22%; z-index: 1; pointer-events: none; }
+.odo::before { top: 0; background: linear-gradient(var(--bg), transparent); } .odo::after { bottom: 0; background: linear-gradient(transparent, var(--bg)); }
+.ruler { position: relative; height: 54px; margin-top: 26px; overflow: hidden; direction: ltr; -webkit-mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+.ruler .strip { position: absolute; top: 0; left: 50%; height: 100%; will-change: transform; }
+.ruler .tk { position: absolute; bottom: 20px; width: 1px; background: var(--line-2); }
+.ruler .tk.d { height: 22px; background: var(--ink-3); } .ruler .tk:not(.d) { height: 10px; }
+.ruler .lb { position: absolute; bottom: 0; font-size: 12px; color: var(--ink-3); transform: translateX(-50%); font-family: "Marcellus", serif; }
+.ruler .mk { position: absolute; bottom: 24px; width: 12px; height: 12px; background: var(--tq); transform: translateX(-50%) rotate(45deg); }
+.ruler::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 18px; width: 2px; background: var(--brass); }
+.miles { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.miles li { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 74px 1fr; gap: 4px 16px; opacity: .3; transition: opacity .5s var(--ease); }
+.miles li.on { opacity: 1; }
+.miles li .y { font-family: "Marcellus", serif; font-size: 22px; color: var(--tq); grid-row: span 2; direction: ltr; }
+.miles li b { font-weight: 500; font-size: 18px; }
+.miles li p { color: var(--ink-2); font-size: 15px; }
+@media (max-width: 860px) { .years { grid-template-columns: 1fr; align-content: center; gap: 20px; padding-top: 80px; } .miles li { padding: 10px 0; } .miles li p { display: none; } .miles li.on p { display: block; } }
+
+/* 02 · houses */
+#ch-houses { height: 460vh; }
+.h-stage { display: grid; grid-template-rows: auto 1fr; padding: 100px var(--gutter) 40px; gap: 24px; }
+.h-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; align-items: center; perspective: 1600px; }
+.tile { position: relative; aspect-ratio: 3 / 4.2; transform-style: preserve-3d; will-change: transform; }
+.tile .f { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; overflow: hidden; }
+.tile .front { background: var(--tq-deep); display: grid; place-items: center; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.tile .front .girih { background: #8fe0d6; opacity: .22; }
+.tile .front .star { position: relative; width: 62%; aspect-ratio: 1; display: grid; place-items: center; }
+.tile .front .star::before, .tile .front .star::after { content: ""; position: absolute; inset: 14%; background: var(--hc); border-radius: 8px; }
+.tile .front .star::after { transform: rotate(45deg); }
+.tile .front .star b { position: relative; z-index: 1; font-family: "Marcellus", serif; font-weight: 400; color: #061514; font-size: clamp(20px, 2.4vw, 34px); }
+.tile .back { transform: rotateY(180deg); background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--line-2); padding: clamp(14px, 1.6vw, 24px); display: flex; flex-direction: column; gap: 10px; }
+.tile .back::before { content: ""; position: absolute; inset-inline: 0; top: 0; height: 5px; background: var(--hc); }
+.tile .back .nm { font-family: "Marcellus", serif; font-size: clamp(20px, 1.9vw, 30px); line-height: 1.05; direction: ltr; text-align: start; }
+html[dir="rtl"] .tile .back .nm { text-align: right; }
+.tile .back .tg { color: var(--hc); font-size: 14px; font-weight: 500; }
+.tile .back p { color: var(--ink-2); font-size: clamp(12.5px, 1vw, 14.5px); line-height: 1.65; }
+.tile .back .cd { margin-top: auto; font-family: "Marcellus", serif; color: var(--ink-3); font-size: 13px; }
+@media (max-width: 860px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; align-content: start; }
+  .tile { aspect-ratio: 3 / 2.4; } .tile:last-child { grid-column: 1 / -1; aspect-ratio: 3 / 1.2; }
+  .tile .back p { display: none; } .h-stage { padding-top: 84px; }
+  .tile:last-child .front .star { width: auto; height: 80%; }
+}
+
+/* 03 · glass */
+#ch-glass { height: 460vh; }
+.g-stage { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 90px var(--gutter) 30px; gap: 4vw; }
+#glassSvg { width: 100%; height: 82vh; overflow: visible; }
+.types { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 0; }
+.types li { padding: 14px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 26px 1fr; gap: 2px 12px; opacity: .32; transition: opacity .5s var(--ease); }
+.types li.on { opacity: 1; }
+.types li i { width: 12px; height: 12px; background: var(--tq); transform: rotate(45deg); margin-top: 8px; grid-row: span 2; }
+.types li b { font-size: 19px; font-weight: 500; } .types li p { color: var(--ink-2); font-size: 15px; }
+@media (max-width: 860px) { .g-stage { grid-template-columns: 1fr; grid-template-rows: 54% 46%; padding-top: 74px; gap: 0; } #glassSvg { height: 50vh; } .g-copy h2, .g-copy .lede { display: none; } .types li { display: none; } .types li.on { display: grid; border: 0; } }
+
+/* 04 · testing */
+#ch-test { height: 400vh; }
+.t-stage { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; padding: 90px var(--gutter) 30px; gap: 4vw; }
+.t-chart { position: relative; height: 66vh; }
+.t-chart canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.checks { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
+.checks li { display: flex; gap: 14px; align-items: flex-start; color: var(--ink-3); transition: color .4s; }
+.checks li .bx { width: 22px; height: 22px; border-radius: 6px; box-shadow: inset 0 0 0 1.5px var(--line-2); flex-shrink: 0; display: grid; place-items: center; transition: .4s var(--ease); margin-top: 3px; }
+.checks li .bx svg { width: 14px; opacity: 0; transform: scale(.4); transition: .4s var(--ease); color: #031413; }
+.checks li.on { color: var(--ink); } .checks li.on .bx { background: var(--tq); box-shadow: none; } .checks li.on .bx svg { opacity: 1; transform: none; }
+.quote { margin-top: 24px; padding-inline-start: 18px; border-inline-start: 2px solid var(--brass); color: var(--ink-2); font-size: 15px; }
+@media (max-width: 860px) { .t-stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; padding-top: 80px; gap: 10px; } .t-chart { height: 38vh; order: -1; } .t-copy h2 { font-size: 24px; } .quote { display: none; } .checks { gap: 6px; font-size: 15px; } }
+
+/* 05 · branches */
+#ch-branches { height: 340vh; }
+.b-stage { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 90px var(--gutter) 30px; gap: 4vw; }
+#mapSvg { width: 100%; height: 80vh; overflow: visible; }
+.bcards { display: grid; gap: 14px; margin-top: 22px; }
+.bcard { padding: 20px 22px; display: grid; gap: 10px; opacity: 0; translate: 0 20px; transition: opacity .6s var(--ease), translate .6s var(--ease); }
+.bcard.on { opacity: 1; translate: 0 0; }
+.bcard h3 { font-size: 24px; display: flex; align-items: center; gap: 10px; }
+.bcard h3 i { width: 10px; height: 10px; background: var(--tq); transform: rotate(45deg); }
+.bcard .row { display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 860px) { .b-stage { grid-template-columns: 1fr; grid-template-rows: 40% 60%; padding-top: 74px; gap: 0; } #mapSvg { height: 36vh; } .b-copy h2 { font-size: 26px; } .b-copy .lede { display: none; } .bcard { padding: 14px; } .bcard h3 { font-size: 19px; } }
+
+/* 06 · end */
+.ends { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.endc { position: relative; overflow: hidden; border-radius: 22px; padding: clamp(28px, 4vw, 54px); min-height: 52vh; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--line); transition: transform .5s var(--ease); }
+.endc:hover { transform: translateY(-4px); }
+.endc.t { background: var(--tq-deep); color: #edf1ea; } .endc.t .muted { color: rgba(237,241,234,.75); } .endc.t .girih { background: #8fe0d6; opacity: .14; }
+@media (max-width: 860px) { .ends { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-title-ar="نور النبراس — عطور العالم بميزان الثقة" data-title-en="Noor Al Nibras — The world's scents, weighed in trust">
+<div data-nbs-header data-page="home"></div>
+
+<main>
+<!-- ============ 00 · THE SCALE ============ -->
+<section class="scene" id="ch-scale" data-chapter data-ar="الميزان" data-en="The scale">
+  <div class="stage">
+    <div class="girih"></div>
+    <canvas class="full" id="scaleCv" aria-hidden="true"></canvas>
+    <div class="copy-abs" id="scaleCopy">
+      <div class="step on">
+        <span class="eyebrow"><span lang="ar">نور النبراس · بغداد · منذ 1980</span><span lang="en">Noor Al Nibras · Baghdad · Since 1980</span></span>
+        <h1 class="display"><span lang="ar">عطور العالم،<br><em>بميزان الثقة.</em></span><span lang="en">The world's scents,<br><em>weighed in trust.</em></span></h1>
+        <p class="lede"><span lang="ar">تاجر عراقي مرخّص للزيوت العطرية المركّزة ومستلزماتها، ووكيل حصري لدور عطور عالمية.</span><span lang="en">A licensed Iraqi trader of concentrated perfume oils and accessories, and exclusive agent for global fragrance houses.</span></p>
+      </div>
+      <div class="step">
+        <span class="eyebrow"><span lang="ar">الزيت أولاً</span><span lang="en">The oil first</span></span>
+        <h2 class="h-xl"><span lang="ar">زيت مركّز<br>من دور عالمية.</span><span lang="en">Concentrated oil<br>from world houses.</span></h2>
+        <p class="lede"><span lang="ar">نختاره من مصدره، ونفحصه، ثم نزنه أمامك.</span><span lang="en">Chosen at the source, tested, then weighed in front of you.</span></p>
+      </div>
+      <div class="step">
+        <span class="eyebrow"><span lang="ar">وزن صحيح</span><span lang="en">True weight</span></span>
+        <h2 class="h-xl"><span lang="ar">وزنٌ صحيح،<br><em>كل مرّة.</em></span><span lang="en">The right weight,<br><em>every time.</em></span></h2>
+        <div class="readout" id="readout">
+          <div><b id="rL">0.00</b><small><span lang="ar">كغم زيت</span><span lang="en">kg of oil</span></small></div>
+          <div><b id="rR">0.00</b><small><span lang="ar">كغم أوزان</span><span lang="en">kg of weights</span></small></div>
+        </div>
+        <p class="lede"><span lang="ar">بالكيلو وربع الكيلو — لتاجر الجملة ولصاحب المحل.</span><span lang="en">By the kilo and the quarter-kilo — for wholesalers and shop owners alike.</span></p>
+      </div>
+    </div>
+    <div class="cue" id="cue"><span lang="ar">مرّر</span><span lang="en">Scroll</span><i></i></div>
+  </div>
+</section>
+
+<!-- ============ 01 · SINCE 1980 ============ -->
+<section class="scene" id="ch-years" data-chapter data-ar="منذ 1980" data-en="Since 1980">
+  <div class="stage">
+    <div class="years">
+      <div>
+        <span class="eyebrow" style="margin-bottom:18px"><span lang="ar">أكثر من أربعة عقود</span><span lang="en">Over four decades</span></span>
+        <div class="odo" id="odo"></div>
+        <div class="ruler"><div class="strip" id="strip"></div></div>
+      </div>
+      <ol class="miles" id="miles">
+        <li data-y="1980"><span class="y">1980</span><b><span lang="ar">البداية في بغداد</span><span lang="en">It begins in Baghdad</span></b><p><span lang="ar">الخيار المفضّل لمن يبحث عن عطور مميّزة منذ 1980.</span><span lang="en">The preferred choice for distinctive fragrances since 1980.</span></p></li>
+        <li data-y="1995"><span class="y">—</span><b><span lang="ar">رائد تجارة العطور في العراق</span><span lang="en">A pioneer of Iraq's perfume trade</span></b><p><span lang="ar">المهندس صلاح حسن الزبيدي أسّس منهجاً ورؤية تواصل الشركة البناء عليهما.</span><span lang="en">Eng. Salah Hassan Al-Zubaidi set the method and vision the company still builds on.</span></p></li>
+        <li data-y="2016"><span class="y">2016</span><b><span lang="ar">شراكة مع Givaudan</span><span lang="en">Partnership with Givaudan</span></b><p><span lang="ar">مع رائدة عالمية في العطور والنكهات والجمال.</span><span lang="en">With a global leader in fragrance, flavour and beauty.</span></p></li>
+        <li data-y="2026"><span class="y">2026</span><b><span lang="ar">فرعان وخمس دور عالمية</span><span lang="en">Two branches, five world houses</span></b><p><span lang="ar">الصرافية والشورجة في بغداد — ومن أكبر شركات تجارة العطور في العراق.</span><span lang="en">Al-Sarafiya and Al-Shorja in Baghdad — one of the largest perfume trading companies in Iraq.</span></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · HOUSES ============ -->
+<section class="scene" id="ch-houses" data-chapter data-ar="الدور العالمية" data-en="World houses">
+  <div class="stage h-stage">
+    <div class="h-head">
+      <div style="display:grid;gap:12px">
+        <span class="eyebrow"><span lang="ar">الشراكات</span><span lang="en">Partnership</span></span>
+        <h2 class="h-lg"><span lang="ar">روابط تتجاوز الحدود،<br>مبنية على الثقة.</span><span lang="en">Bonds beyond borders,<br>built on trust.</span></h2>
+      </div>
+      <a class="btn ghost sm" href="partners.html"><span lang="ar">كل الشركاء</span><span lang="en">All partners</span> <span class="arr">→</span></a>
+    </div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</section>
+
+<!-- ============ 03 · GLASS ============ -->
+<section class="scene" id="ch-glass" data-chapter data-ar="الزجاج" data-en="Glass">
+  <div class="stage g-stage">
+    <div class="g-copy">
+      <span class="eyebrow"><span lang="ar">زجاج العطور</span><span lang="en">Perfume bottle glass</span></span>
+      <h2 class="h-lg" style="margin-top:14px"><span lang="ar">مئات الأشكال والأحجام.</span><span lang="en">Hundreds of shapes and sizes.</span></h2>
+      <p class="lede" style="margin-top:12px"><span lang="ar">أربع عائلات من القوارير — وكل عائلة بعشرات التصاميم.</span><span lang="en">Four families of bottles — each in dozens of designs.</span></p>
+      <ol class="types" id="types"></ol>
+    </div>
+    <svg id="glassSvg" viewBox="0 0 600 720" aria-hidden="true">
+      <defs>
+        <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".03"/><stop offset=".16" stop-color="#fff" stop-opacity=".38"/><stop offset=".24" stop-color="#fff" stop-opacity=".04"/><stop offset=".82" stop-color="#fff" stop-opacity=".03"/><stop offset=".9" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity=".03"/></linearGradient>
+        <linearGradient id="oilG" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f4d58e"/><stop offset="1" stop-color="#c1862a"/></linearGradient>
+        <linearGradient id="brassG" x1="0" x2="1"><stop offset="0" stop-color="#6d5222"/><stop offset=".4" stop-color="#f2d9a0"/><stop offset=".65" stop-color="#b48d48"/><stop offset="1" stop-color="#5d451b"/></linearGradient>
+        <clipPath id="bClip"><path id="bClipP"/></clipPath>
+      </defs>
+      <g id="variants"></g>
+      <ellipse cx="300" cy="676" rx="150" ry="12" fill="#000" opacity=".3"/>
+      <g clip-path="url(#bClip)">
+        <rect id="capR" x="0" y="0" width="600" height="0" fill="url(#brassG)"/>
+        <path id="oilP" fill="url(#oilG)"/>
+        <rect x="0" y="0" width="600" height="720" fill="url(#gl)"/>
+      </g>
+      <path id="bOut" fill="none" stroke="var(--tq-2)" stroke-width="2"/>
+      <text id="gLbl" x="300" y="712" text-anchor="middle" font-family="Marcellus, serif" font-size="18" fill="var(--ink-3)" letter-spacing="4"></text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 04 · TESTING ============ -->
+<section class="scene" id="ch-test" data-chapter data-ar="الفحص" data-en="Testing">
+  <div class="stage t-stage">
+    <div class="t-copy">
+      <span class="eyebrow"><span lang="ar">الفحص والجودة</span><span lang="en">Testing &amp; quality</span></span>
+      <h2 class="h-lg" style="margin-top:14px"><span lang="ar">نختبر العطر<br>على مدار الساعات.</span><span lang="en">We test a scent<br>across the hours.</span></h2>
+      <ul class="checks" id="checks">
+        <li><span class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8 3.5 3.5L13 5"/></svg></span><span><span lang="ar">التطاير — كيف تنطلق النوتات الأولى</span><span lang="en">Volatility — how the first notes lift off</span></span></li>
+        <li><span class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8 3.5 3.5L13 5"/></svg></span><span><span lang="ar">تطوّر الرائحة — من المقدمة إلى القلب</span><span lang="en">Scent development — from top to heart</span></span></li>
+        <li><span class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8 3.5 3.5L13 5"/></svg></span><span><span lang="ar">الثبات — كم تبقى القاعدة</span><span lang="en">Longevity — how long the base lasts</span></span></li>
+        <li><span class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8 3.5 3.5L13 5"/></svg></span><span><span lang="ar">الاستقرار في ظروف مختلفة</span><span lang="en">Stability under varying conditions</span></span></li>
+        <li><span class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8 3.5 3.5L13 5"/></svg></span><span><span lang="ar">ملاءمة البشرة</span><span lang="en">Skin compatibility</span></span></li>
+      </ul>
+      <p class="quote"><span lang="ar">المدير التنفيذي يختبر الزيوت بنفسه، ويفحص انتشار العطر وثباته قبل أن يصل إلى رفوفكم.</span><span lang="en">Our CEO personally tests the oils, inspecting each scent's spread and lasting power before it reaches your shelves.</span></p>
+    </div>
+    <div class="t-chart"><canvas id="testCv" aria-hidden="true"></canvas></div>
+  </div>
+</section>
+
+<!-- ============ 05 · BRANCHES ============ -->
+<section class="scene" id="ch-branches" data-chapter data-ar="الفروع" data-en="Branches">
+  <div class="stage b-stage">
+    <svg id="mapSvg" viewBox="0 0 500 700" aria-hidden="true"></svg>
+    <div class="b-copy">
+      <span class="eyebrow"><span lang="ar">بغداد</span><span lang="en">Baghdad</span></span>
+      <h2 class="h-lg" style="margin-top:14px"><span lang="ar">فرعان على ضفّة الرصافة.</span><span lang="en">Two branches on the Rusafa bank.</span></h2>
+      <p class="lede" style="margin-top:12px"><span lang="ar">زورونا، أو اسألوا عن السعر مباشرة من الفرع الأقرب.</span><span lang="en">Visit us, or ask for prices directly from the nearest branch.</span></p>
+      <div class="bcards" id="bcards"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · NEXT ============ -->
+<section class="section" id="ch-next" data-chapter data-ar="التالي" data-en="Next">
+  <div class="wrap ends">
+    <a class="endc t" href="https://nooralnibras.com" target="_blank" rel="noopener">
+      <div class="girih"></div>
+      <span class="eyebrow" style="color:#8fe0d6;position:relative"><span lang="ar">مكتبة العطور</span><span lang="en">Fragrance library</span></span>
+      <h2 class="h-lg" style="position:relative"><span lang="ar">تصفّح مئات العطور<br>بنوتاتها وموسمها.</span><span lang="en">Browse hundreds of perfumes<br>by note and season.</span></h2>
+      <span style="position:relative" class="muted">nooralnibras.com ↗</span>
+    </a>
+    <a class="endc" href="contact.html">
+      <span class="eyebrow"><span lang="ar">للتجّار وأصحاب المحلات</span><span lang="en">For traders &amp; shop owners</span></span>
+      <h2 class="h-lg"><span lang="ar">اطلب عرض سعر<br>على واتساب.</span><span lang="en">Get a quote<br>on WhatsApp.</span></h2>
+      <p class="muted"><span lang="ar">زيوت مركّزة، زجاج، ومستلزمات — من فرع الصرافية أو الشورجة.</span><span lang="en">Concentrated oils, glass and supplies — from Al-Sarafiya or Al-Shorja.</span></p>
+      <span><span class="btn sm"><span lang="ar">ابدأ الطلب</span><span lang="en">Start a request</span> <span class="arr">→</span></span></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<div data-nbs-footer></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/nbs.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.NBS_DATA, M = NBS.M, t = NBS.t, bi = NBS.bi;
+  NBS.boot();
+  const rtl = () => NBS.lang === "ar";
+  const C = {};
+  const readC = () => { ["tq", "tq-2", "tq-deep", "brass", "brass-2", "oil", "ink", "ink-2", "ink-3", "line", "line-2", "bg", "bg-2", "clay", "lapis", "blend"].forEach(k => C[k.replace(/-(\w)/g, (_, c) => c.toUpperCase())] = NBS.css("--" + k)); C.night = NBS.theme === "night"; };
+  readC(); NBS.onTheme(readC);
+
+  /* ======================================================
+     00 · THE SCALE — a real damped balance driven by mass
+     ====================================================== */
+  (function scale() {
+    const S = NBS.canvas(document.getElementById("scaleCv"), layout);
+    const steps = [...document.querySelectorAll("#scaleCopy .step")], cue = document.getElementById("cue");
+    const rL = document.getElementById("rL"), rR = document.getElementById("rR");
+    const G = {}; let th = 0, om = 0;
+    function layout() {
+      const { w, h } = S, mob = w < 760;
+      G.mob = mob; G.cx = mob ? w / 2 : (rtl() ? w * .3 : w * .7);
+      G.u = mob ? Math.min(w / 700, h / 1200) : Math.min(w / 1300, h / 820);
+      G.py = mob ? h * .2 : h * .3;
+    }
+    NBS.onLang(layout);
+    const W1 = [.4, .5], W2 = [.58, .66];   // weight drop windows
+    const massL = p => 1.25 * M.easeInOut(M.seg(p, .14, .36));
+    const massR = p => (p >= W1[1] ? 1 : 0) + (p >= W2[1] ? .25 : 0);
+    function brass(ctx, x0, x1) { const g = ctx.createLinearGradient(x0, 0, x1, 0); g.addColorStop(0, "#5d451b"); g.addColorStop(.38, "#f2d9a0"); g.addColorStop(.62, "#b48d48"); g.addColorStop(1, "#4d3915"); return g; }
+    function weight(ctx, x, y, s, label) {
+      const ww = 46 * s, hh = 40 * s;
+      ctx.fillStyle = brass(ctx, x - ww / 2, x + ww / 2);
+      ctx.beginPath(); ctx.roundRect(x - ww / 2, y - hh, ww, hh, 5 * s); ctx.fill();
+      ctx.beginPath(); ctx.roundRect(x - ww * .18, y - hh - 12 * s, ww * .36, 12 * s, 4 * s); ctx.fill();
+      ctx.fillStyle = "#3a2a0e"; ctx.font = `500 ${13 * s}px "Readex Pro", sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(label, x, y - hh / 2 + 1);
+    }
+    function flask(ctx, x, y, s, fill) {
+      const r = 40 * s, top = y - 118 * s;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(x - 10 * s, top); ctx.lineTo(x - 10 * s, top + 38 * s);
+      ctx.bezierCurveTo(x - r * 1.3, top + 52 * s, x - r * 1.3, y, x - r * .6, y);
+      ctx.lineTo(x + r * .6, y);
+      ctx.bezierCurveTo(x + r * 1.3, y, x + r * 1.3, top + 52 * s, x + 10 * s, top + 38 * s);
+      ctx.lineTo(x + 10 * s, top); ctx.closePath();
+      ctx.fillStyle = C.night ? "rgba(143,224,214,.07)" : "rgba(14,127,119,.06)"; ctx.fill();
+      ctx.save(); ctx.clip();
+      const lv = y - (y - top - 30 * s) * fill;
+      const og = ctx.createLinearGradient(0, lv, 0, y); og.addColorStop(0, "#f4d58e"); og.addColorStop(1, "#c1862a");
+      ctx.fillStyle = og; ctx.fillRect(x - r * 2, lv, r * 4, y - lv);
+      ctx.fillStyle = "rgba(255,255,255,.35)"; ctx.fillRect(x - r * .7, top + 48 * s, 2 * s, 50 * s);
+      ctx.restore();
+      ctx.strokeStyle = C.tq2; ctx.lineWidth = 1.4; ctx.stroke();
+      ctx.restore();
+    }
+    NBS.scene(document.getElementById("ch-scale"), {
+      render(p, now, dt) {
+        const { ctx, w, h } = S; ctx.clearRect(0, 0, w, h);
+        const u = G.u, cx = G.cx, py = G.py;
+        const st = p < .16 ? 0 : p < .42 ? 1 : 2;
+        steps.forEach((s, i) => s.classList.toggle("on", i === st));
+        cue.style.opacity = 1 - M.seg(p, 0, .05);
+        const mL = massL(p), mR = massR(p);
+        rL.textContent = mL.toFixed(2); rR.textContent = mR.toFixed(2);
+        // spring physics toward mass-difference target
+        const target = M.clamp((mL - mR) * .26, -.3, .3);
+        const n = 4, h1 = Math.min(dt, .05) / n;
+        for (let i = 0; i < n; i++) { const a = -38 * (th - target) - 4.2 * om; om += a * h1; th += om * h1; }
+        const sway = Math.sin(now * 1.3) * .006 * (1 - M.seg(p, .1, .2));
+        const A = th + sway, B = 230 * u, chain = 190 * u;
+        // stand
+        const baseY = py + 470 * u;
+        ctx.fillStyle = brass(ctx, cx - 130 * u, cx + 130 * u);
+        ctx.beginPath(); ctx.roundRect(cx - 120 * u, baseY, 240 * u, 22 * u, 6 * u); ctx.fill();
+        ctx.beginPath(); ctx.roundRect(cx - 80 * u, baseY - 16 * u, 160 * u, 18 * u, 5 * u); ctx.fill();
+        ctx.fillStyle = brass(ctx, cx - 10 * u, cx + 10 * u); ctx.fillRect(cx - 9 * u, py, 18 * u, baseY - py - 14 * u);
+        // dial
+        ctx.strokeStyle = C.line2; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(cx, py, 74 * u, -Math.PI * .5 - .45, -Math.PI * .5 + .45); ctx.stroke();
+        for (let k = -6; k <= 6; k++) { const a = -Math.PI / 2 + k * .07; ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * 74 * u, py + Math.sin(a) * 74 * u); ctx.lineTo(cx + Math.cos(a) * (k % 3 ? 68 : 62) * u, py + Math.sin(a) * (k % 3 ? 68 : 62) * u); ctx.stroke(); }
+        // needle
+        ctx.save(); ctx.translate(cx, py); ctx.rotate(-A);
+        ctx.fillStyle = Math.abs(A) < .01 && p > .66 ? C.tq : C.brass2;
+        ctx.beginPath(); ctx.moveTo(-3 * u, 0); ctx.lineTo(0, -84 * u); ctx.lineTo(3 * u, 0); ctx.fill();
+        ctx.restore();
+        // beam
+        const lx = cx - Math.cos(A) * B, ly = py + Math.sin(A) * B, rx = cx + Math.cos(A) * B, ry = py - Math.sin(A) * B;
+        ctx.save(); ctx.translate(cx, py); ctx.rotate(-A);
+        ctx.fillStyle = brass(ctx, 0, 0); ctx.fillStyle = C.brass;
+        ctx.beginPath(); ctx.moveTo(-B - 6 * u, -3 * u); ctx.lineTo(0, -9 * u); ctx.lineTo(B + 6 * u, -3 * u); ctx.lineTo(B + 6 * u, 3 * u); ctx.lineTo(0, 9 * u); ctx.lineTo(-B - 6 * u, 3 * u); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = "rgba(255,255,255,.35)"; ctx.fillRect(-B, -2 * u, 2 * B, 1.2 * u);
+        ctx.restore();
+        ctx.fillStyle = C.brass2; ctx.beginPath(); ctx.arc(cx, py, 11 * u, 0, 6.283); ctx.fill();
+        ctx.fillStyle = C.tq; ctx.beginPath(); ctx.arc(cx, py, 4 * u, 0, 6.283); ctx.fill();
+        // pans
+        const pan = (x, y) => {
+          const py2 = y + chain, pr = 92 * u;
+          ctx.strokeStyle = C.brass; ctx.lineWidth = 1.2;
+          [-1, 0, 1].forEach(k => { ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + k * pr * .92, py2); ctx.stroke(); });
+          ctx.fillStyle = brass(ctx, x - pr, x + pr);
+          ctx.beginPath(); ctx.moveTo(x - pr, py2); ctx.quadraticCurveTo(x, py2 + 46 * u, x + pr, py2); ctx.lineTo(x + pr, py2 + 3 * u); ctx.quadraticCurveTo(x, py2 + 50 * u, x - pr, py2 + 3 * u); ctx.closePath(); ctx.fill();
+          ctx.fillStyle = C.brass2; ctx.beginPath(); ctx.ellipse(x, py2, pr, 7 * u, 0, 0, 6.283); ctx.fill();
+          ctx.fillStyle = C.night ? "rgba(0,0,0,.35)" : "rgba(14,38,40,.18)"; ctx.beginPath(); ctx.ellipse(x, py2, pr * .94, 5 * u, 0, 0, 6.283); ctx.fill();
+          return py2;
+        };
+        // left pan = oil (in RTL the oil sits on the reading side too)
+        const oilLeft = true;
+        const yL = pan(lx, ly), yR = pan(rx, ry);
+        const fill = M.seg(p, .14, .36);
+        flask(ctx, lx, yL - 2 * u, u, fill);
+        // oil stream
+        if (fill > 0 && fill < 1) {
+          const sx = lx, top = -10, bot = yL - 100 * u;
+          const g = ctx.createLinearGradient(0, top, 0, bot); g.addColorStop(0, "rgba(226,182,90,0)"); g.addColorStop(.3, C.oil); g.addColorStop(1, C.oil);
+          ctx.fillStyle = g; ctx.fillRect(sx - 2 * u + Math.sin(now * 9) * .5, top, 4 * u, bot - top);
+        }
+        // weights fall with gravity and land on the right pan
+        const drop = (win, x, label, s, off) => {
+          const k = M.seg(p, win[0], win[1]); if (k <= 0) return;
+          const landY = yR - 2 * u, y = M.lerp(-60, landY, k * k);
+          weight(ctx, x + off * u, k >= 1 ? landY : y, s * u, label);
+        };
+        drop(W1, rx, rtl() ? "١ كغم" : "1 kg", 1.25, -22);
+        drop(W2, rx, rtl() ? "¼ كغم" : "¼ kg", .85, 38);
+        // labels under pans
+        ctx.fillStyle = C.ink3; ctx.font = `400 ${Math.max(11, 13 * u)}px "Readex Pro", sans-serif`; ctx.textAlign = "center";
+        ctx.fillText(rtl() ? "زيت مركّز" : "concentrated oil", lx, yL + 60 * u);
+        ctx.fillText(rtl() ? "الأوزان" : "weights", rx, yR + 60 * u);
+        if (p > .66 && Math.abs(A) < .012) {
+          ctx.fillStyle = C.tq; ctx.font = `500 ${Math.max(12, 15 * u)}px "Readex Pro", sans-serif`;
+          ctx.fillText(rtl() ? "متوازن ✓" : "balanced ✓", cx, py - 100 * u);
+        }
+      }
+    });
+  })();
+
+  /* ======================================================
+     01 · SINCE 1980 — mechanical odometer + year ruler
+     ====================================================== */
+  (function years() {
+    const odo = document.getElementById("odo"), strip = document.getElementById("strip");
+    const lis = [...document.querySelectorAll("#miles li")];
+    odo.innerHTML = [0, 1, 2, 3].map(() => `<div class="col">${Array.from({ length: 11 }, (_, i) => `<span>${i % 10}</span>`).join("")}</div>`).join("");
+    const cols = [...odo.children].reverse(); // units first
+    const PX = 26, Y0 = 1975, Y1 = 2030;
+    let html = "";
+    for (let y = Y0; y <= Y1; y++) {
+      const x = (y - Y0) * PX;
+      html += `<i class="tk ${y % 10 === 0 ? "d" : ""}" style="left:${x}px"></i>`;
+      if (y % 10 === 0) html += `<span class="lb" style="left:${x}px">${y}</span>`;
+      if ([1980, 2016, 2026].includes(y)) html += `<span class="mk" style="left:${x}px"></span>`;
+    }
+    strip.innerHTML = html;
+    NBS.scene(document.getElementById("ch-years"), {
+      render(p) {
+        const v = 1980 + 46 * M.easeInOut(M.seg(p, .08, .9));
+        cols.forEach((col, k) => {
+          const pow = Math.pow(10, k), rem = v % pow, base = Math.floor(v / pow) % 10;
+          const d = k === 0 ? v % 10 : base + (rem > pow - 1 ? rem - (pow - 1) : 0);
+          col.style.transform = `translateY(${-d}em)`;
+        });
+        strip.style.transform = `translateX(${-(v - Y0) * PX}px)`;
+        const yr = Math.floor(v);
+        let act = 0; lis.forEach((li, i) => { if (yr >= +li.dataset.y) act = i; });
+        lis.forEach((li, i) => li.classList.toggle("on", i === act));
+      }
+    });
+  })();
+
+  /* ======================================================
+     02 · HOUSES — tiles turn over one by one
+     ====================================================== */
+  (function houses() {
+    const wrap = document.getElementById("tiles");
+    wrap.innerHTML = D.HOUSES.map(hs => `
+      <a class="tile" href="partners.html#${hs.id}" style="--hc:${hs.color}">
+        <div class="f front"><div class="girih"></div><div class="star"><b>${hs.code}</b></div></div>
+        <div class="f back"><span class="nm">${hs.name}</span><span class="tg">${bi(hs.tag.ar, hs.tag.en)}</span><p>${bi(hs.d.ar, hs.d.en)}</p><span class="cd">${hs.code}${hs.since ? " · since " + hs.since : ""}</span></div>
+      </a>`).join("");
+    const tiles = [...wrap.children];
+    NBS.scene(document.getElementById("ch-houses"), {
+      render(p) {
+        tiles.forEach((el, i) => {
+          const k = M.easeInOut(M.seg(p, .08 + i * .15, .2 + i * .15));
+          const lift = Math.sin(Math.PI * k);
+          el.style.transform = `translateY(${-lift * 24}px) rotateY(${(rtl() ? -180 : 180) * k}deg) scale(${1 + lift * .04})`;
+        });
+      }
+    });
+  })();
+
+  /* ======================================================
+     03 · GLASS — one silhouette morphing through four families
+     ====================================================== */
+  (function glass() {
+    const types = document.getElementById("types");
+    types.innerHTML = D.GLASS.map(g => `<li><i></i><b>${bi(g.name.ar, g.name.en)}</b><p>${bi(g.d.ar, g.d.en)}</p></li>`).join("");
+    const lis = [...types.children];
+    const P = D.GLASS.map(g => NBS.profile(g.id));
+    const CAP = [.25, .2, .3, .32];
+    const $ = id => document.getElementById(id);
+    const out = $("bOut"), clipP = $("bClipP"), oil = $("oilP"), capR = $("capR"), lbl = $("gLbl"), vars = $("variants");
+    const TOP = 90, H = 580, MR = 150, CX = 300;
+    // the "hundreds of shapes": random blends of the four profiles
+    const rnd = M.rng(31);
+    const V = Array.from({ length: 22 }, () => {
+      const wts = [rnd(), rnd(), rnd(), rnd()].map(x => x * x), s = wts.reduce((a, b) => a + b);
+      const rs = P[0].map((_, i) => wts.reduce((a, wv, j) => a + wv * P[j][i], 0) / s);
+      const ang = rnd() * Math.PI * 2, dist = 230 + rnd() * 160;
+      return { rs, x: CX + Math.cos(ang) * dist * 1.1, y: 360 + Math.sin(ang) * dist * .9, sc: .18 + rnd() * .16 };
+    });
+    vars.innerHTML = V.map(v => `<path fill="none" stroke="var(--tq)" stroke-width="2.5" opacity="0" d="${NBS.profilePath(v.rs, 0, -290, 580, 150)}"/>`).join("");
+    const vEls = [...vars.children];
+    NBS.scene(document.getElementById("ch-glass"), {
+      render(p, now) {
+        const q = M.seg(p, .04, .8) * 3;                // 0..3 across four types
+        const i0 = Math.min(2, Math.floor(q)), f = M.easeInOut(M.clamp(q - i0));
+        const rs = P[i0].map((r, i) => M.lerp(r, P[i0 + 1][i], f));
+        const cap = M.lerp(CAP[i0], CAP[i0 + 1], f);
+        const d = NBS.profilePath(rs, CX, TOP, H, MR);
+        out.setAttribute("d", d); clipP.setAttribute("d", d);
+        capR.setAttribute("height", (TOP + H * cap).toFixed(1));
+        const lv = TOP + H * (cap + .12) + Math.sin(now * 1.6) * 2;
+        let od = `M0 ${lv}`; for (let x = 0; x <= 600; x += 20) od += ` L${x} ${(lv + Math.sin(x * .03 + now * 2) * 3).toFixed(1)}`; od += " L600 720 L0 720Z";
+        oil.setAttribute("d", od);
+        const act = Math.min(3, Math.round(q));
+        lis.forEach((li, i) => li.classList.toggle("on", i === act));
+        lbl.textContent = D.GLASS[act].name.en.toUpperCase();
+        const vk = M.seg(p, .8, .97);
+        vEls.forEach((el, i) => {
+          const v = V[i], k = M.easeOut(M.seg(vk, i / V.length * .5, .5 + i / V.length * .5));
+          el.setAttribute("transform", `translate(${M.lerp(CX, v.x, k)} ${M.lerp(380, v.y, k)}) scale(${(v.sc * k).toFixed(3)})`);
+          el.setAttribute("opacity", (k * .7).toFixed(2));
+        });
+      }
+    });
+  })();
+
+  /* ======================================================
+     04 · TESTING — evaporation curves drawn hour by hour
+     ====================================================== */
+  (function test() {
+    const S = NBS.canvas(document.getElementById("testCv"));
+    const lis = [...document.querySelectorAll("#checks li")];
+    const curves = [
+      { n: { ar: "المقدمة", en: "Top" }, c: () => C.tq2, f: x => Math.exp(-Math.pow((x - .6) / .9, 2)) * (x < .6 ? x / .6 : 1) },
+      { n: { ar: "القلب", en: "Heart" }, c: () => C.clay, f: x => .78 * Math.exp(-Math.pow((x - 3) / 2.2, 2)) },
+      { n: { ar: "القاعدة", en: "Base" }, c: () => C.brass, f: x => .58 * (1 - Math.exp(-x / 2.2)) * Math.exp(-Math.max(0, x - 7) / 8) }
+    ];
+    NBS.scene(document.getElementById("ch-test"), {
+      render(p) {
+        const { ctx, w, h } = S; ctx.clearRect(0, 0, w, h);
+        const padL = 44, padR = 16, padT = 46, padB = 40;
+        const X = x => rtl() ? w - padR - (x / 12) * (w - padL - padR) : padL + (x / 12) * (w - padL - padR);
+        const Y = y => h - padB - y * (h - padT - padB);
+        const q = M.seg(p, .06, .9), xNow = 12 * q;
+        // grid
+        ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.font = `400 12px "Readex Pro", sans-serif`; ctx.fillStyle = C.ink3; ctx.textAlign = "center";
+        for (let hr = 0; hr <= 12; hr += 2) { ctx.beginPath(); ctx.moveTo(X(hr), Y(0)); ctx.lineTo(X(hr), Y(1)); ctx.stroke(); ctx.fillText(rtl() ? NBS.arDigits(hr) + " س" : hr + "h", X(hr), h - 14); }
+        ctx.strokeStyle = C.line2; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(12), Y(0)); ctx.stroke();
+        // curves
+        curves.forEach((cv, i) => {
+          ctx.strokeStyle = cv.c(); ctx.lineWidth = 2.5; ctx.beginPath();
+          for (let x = 0; x <= xNow; x += .05) { const yy = cv.f(x); x ? ctx.lineTo(X(x), Y(yy)) : ctx.moveTo(X(x), Y(yy)); }
+          ctx.stroke();
+          // area
+          ctx.lineTo(X(xNow), Y(0)); ctx.lineTo(X(0), Y(0)); ctx.closePath(); ctx.globalAlpha = .08; ctx.fillStyle = cv.c(); ctx.fill(); ctx.globalAlpha = 1;
+          if (xNow > .2 && cv.f(xNow) > .04) { const yy = cv.f(xNow); ctx.fillStyle = cv.c(); ctx.beginPath(); ctx.arc(X(xNow), Y(yy), 4.5, 0, 6.283); ctx.fill();
+            ctx.textAlign = rtl() ? "right" : "left"; ctx.font = `500 13px "Readex Pro", sans-serif`; ctx.fillText(t(cv.n), X(xNow) + (rtl() ? -10 : 10), Y(yy) - 8 - i * 2); }
+        });
+        // scan line
+        ctx.strokeStyle = C.brass; ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(X(xNow), Y(0)); ctx.lineTo(X(xNow), Y(1.02)); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = C.ink; ctx.font = `400 22px "Marcellus", serif`; ctx.textAlign = "center";
+        const hh = Math.floor(xNow), mm = Math.floor((xNow - hh) * 60);
+        ctx.fillText(String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0"), X(xNow), Y(1.02) - 4);
+        const done = Math.floor(M.seg(p, .1, .92) * lis.length + .2);
+        lis.forEach((li, i) => li.classList.toggle("on", i < done));
+      }
+    });
+  })();
+
+  /* ======================================================
+     05 · BRANCHES — the Tigris drawn, two pins spring in
+     ====================================================== */
+  (function branches() {
+    const svg = document.getElementById("mapSvg"), cards = document.getElementById("bcards");
+    // schematic Tigris through Baghdad (north up). Both branches on the eastern (Rusafa) bank.
+    const river = "M120 0 C 150 90, 300 110, 290 200 S 150 300, 200 380 S 380 440, 330 540 S 180 620, 230 700";
+    svg.innerHTML = `
+      <path d="${river}" fill="none" stroke="var(--tq-deep)" stroke-width="46" stroke-linecap="round" opacity=".55" id="rw" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/>
+      <path d="${river}" fill="none" stroke="var(--tq)" stroke-width="2" id="rl" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/>
+      <text x="70" y="430" font-size="15" fill="var(--ink-3)" id="tK"></text>
+      <text x="400" y="300" font-size="15" fill="var(--ink-3)" id="tR"></text>
+      <text x="236" y="676" font-size="13" fill="var(--tq)" id="tT" font-family="Marcellus, serif" letter-spacing="3">TIGRIS</text>
+      ${D.BRANCHES.map((b, i) => `<g class="pinG" id="pin${i}" transform="translate(${i ? 380 : 360} ${i ? 470 : 230})">
+        <circle r="34" fill="var(--tq)" opacity=".15"/><path d="M0 -40 C 16 -40 22 -26 22 -18 C 22 -4 0 12 0 12 C 0 12 -22 -4 -22 -18 C -22 -26 -16 -40 0 -40Z" fill="var(--brass)"/><circle cy="-19" r="7" fill="var(--bg)"/>
+        <text y="38" text-anchor="middle" font-size="16" fill="var(--ink)" class="pl"></text></g>`).join("")}
+      <text x="250" y="694" text-anchor="middle" font-size="11" fill="var(--ink-3)" id="tN"></text>
+      <g transform="translate(450 60)"><path d="M0 -22 L7 0 L0 -6 L-7 0Z" fill="var(--ink-3)"/><text y="16" text-anchor="middle" font-size="12" fill="var(--ink-3)" font-family="Marcellus, serif">N</text></g>`;
+    const labels = () => {
+      svg.querySelector("#tK").textContent = t({ ar: "الكرخ", en: "Karkh" });
+      svg.querySelector("#tR").textContent = t({ ar: "الرصافة", en: "Rusafa" });
+      svg.querySelector("#tN").textContent = t({ ar: "مخطط توضيحي — ليس بمقياس", en: "Schematic — not to scale" });
+      svg.querySelectorAll(".pl").forEach((el, i) => el.textContent = t(D.BRANCHES[i].short));
+      cards.innerHTML = D.BRANCHES.map(b => `<div class="bcard card">
+        <h3><i></i>${t(b.name)}</h3><span class="muted small">${t(b.addr)}</span>
+        <div class="row">
+          <a class="btn sm" href="https://wa.me/${b.wa}" target="_blank" rel="noopener">${NBS.icons.chat}${t({ ar: "واتساب", en: "WhatsApp" })}</a>
+          <a class="btn ghost sm" href="tel:${b.phone}" dir="ltr">${NBS.icons.phone}${b.phone}</a>
+          <a class="btn ghost sm" href="${b.map}" target="_blank" rel="noopener">${NBS.icons.pin}${t({ ar: "الخريطة", en: "Map" })}</a>
+        </div></div>`).join("");
+    };
+    labels(); NBS.onLang(labels);
+    const rw = svg.querySelector("#rw"), rl = svg.querySelector("#rl"), pins = [0, 1].map(i => svg.querySelector("#pin" + i));
+    const base = [[360, 230], [380, 470]];
+    const spring = k => k <= 0 ? 0 : k >= 1 ? 1 : 1 - Math.exp(-5 * k) * Math.cos(10 * k);
+    NBS.scene(document.getElementById("ch-branches"), {
+      render(p) {
+        const r = M.easeInOut(M.seg(p, .04, .45));
+        rw.setAttribute("stroke-dashoffset", 1 - r); rl.setAttribute("stroke-dashoffset", 1 - r);
+        const cs = [...cards.children];
+        pins.forEach((pin, i) => {
+          const k = spring(M.seg(p, .4 + i * .2, .6 + i * .2));
+          pin.setAttribute("transform", `translate(${base[i][0]} ${base[i][1] - (1 - k) * 80}) scale(${Math.max(0, k)})`);
+          cs[i] && cs[i].classList.toggle("on", k > .3);
+        });
+      }
+    });
+  })();
+})();
+</script>
+</body>
+</html>
